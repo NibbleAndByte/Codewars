@@ -1,0 +1,26 @@
+def namelist(names):
+    length = len(names)
+    if length == 0:
+        return ""
+    if length == 1:
+        return names[0].get("name")
+    if length == 2:
+        return names[0].get("name") + " & " + names[1].get("name")
+    
+    returnStr = names[0].get("name");
+    for name in names[1:length-1]:
+        returnStr = returnStr +", " + name.get("name")
+    return returnStr + " & " + names[length - 1].get("name")
+        
+		
+		
+# Best practice solution:
+def namelist(names):
+    if len(names) > 1:
+        return '{} & {}'.format(', '.join(name['name'] for name in names[:-1]), 
+                                names[-1]['name'])
+    elif names:
+        return names[0]['name']
+    else:
+        return ''
+#Takeaways: format on {} is pretty neat

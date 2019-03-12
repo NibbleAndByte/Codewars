@@ -1,0 +1,11 @@
+def DNA_strand(dna):
+    dict = {
+    "A":"T",
+    "T":"A",
+    "C":"G",
+    "G":"C",
+    }
+    returnString = "";
+    for char in dna:
+        returnString = returnString + dict[char]
+    return returnString
