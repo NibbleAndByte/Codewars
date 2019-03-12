@@ -51,4 +51,3 @@ def solution(roman):
         else:
             total += dict[c]
         last = dict[c]
-    return total

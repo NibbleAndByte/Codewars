@@ -9,5 +9,5 @@ def likes(names):
         return names[0] + ", " + names[1] + " and "  + names[2] + " like this"
     else:
         return names[0] + ", " + names[1] + " and "  + str(len(names)-2) +" others like this"
-		
+
 https://www.codewars.com/kata/reviews/564425cc55d0e45b8c000087/groups/587d40312ec7b84b2f00102f
