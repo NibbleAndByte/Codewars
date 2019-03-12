@@ -1,0 +1,14 @@
+def get_sum(a,b):
+    small = 0;
+    big = 0;
+    if a < b:
+        small = a
+        big = b
+    else: 
+        small = b
+        big = a
+    sum = 0
+    for i in range(small, big + 1):
+        sum += i
+    return sum
+        

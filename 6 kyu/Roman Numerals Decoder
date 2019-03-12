@@ -1,0 +1,54 @@
+def solution(roman):
+    #Possible better solution : read in character by character and use seniority to decide +-
+    val = 0;
+    RomToNum = {
+    "I":1,
+    "V":5,
+    "X":10,
+    "L":50,
+    "C":100,
+    "D":500,
+    "M":1000
+    }
+    subtractChars = {
+    "IV":4,
+    "IX":9,
+    "XL":40,
+    "XC":90,
+    "CD":400,
+    "CM":900,
+    }
+    subtractList = {"IV","IX","XL","XC","CD",
+    "CM"
+    }
+    for str in subtractList:
+        substringIndex = roman.find(str)
+        if substringIndex != -1:
+            val += subtractChars.get(str)
+            roman = roman.replace(str,'')
+    for char in roman:
+        val += RomToNum[char]
+    return val
+----------
+Perhaps best practices?
+def solution(roman):
+    dict = {
+        "M": 1000,
+        "D": 500,
+        "C": 100,
+        "L": 50,
+        "X": 10,
+        "V": 5,
+        "I": 1
+    }
+
+    last, total = 0, 0
+    for c in list(roman)[::-1]:
+        if last == 0:
+            total += dict[c]
+        elif last > dict[c]:
+            total -= dict[c]
+        else:
+            total += dict[c]
+        last = dict[c]
+    return total

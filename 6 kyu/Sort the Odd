@@ -1,0 +1,18 @@
+def sort_array(source):
+    # Return a sorted array.
+    if len(source) == 0:
+        return []
+        
+    oddarray = []
+    for i in source:
+        if i % 2 == 1:
+            oddarray.append(i)
+    oddarray.sort()
+    
+    oddIndex = 0;
+    for index, val in enumerate(source):
+        if val % 2 == 1:
+            source[index] = oddarray[oddIndex]
+            oddIndex += 1
+            
+    return source
